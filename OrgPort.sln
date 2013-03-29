@@ -1,0 +1,86 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort", "OrgPort\OrgPort.csproj", "{AAD92273-15AF-45DD-B1B0-DE046217C328}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.Tests", "OrgPort.Tests\OrgPort.Tests.csproj", "{8887217A-6C0D-4E69-8345-EF20F57BF58A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{00996F54-A0A8-470D-B2D3-361BAA4A8128}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.Model", "OrgPort.Model\OrgPort.Model.csproj", "{B0E852DF-66CE-4737-8A40-C29165DAF9E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.Data", "OrgPort.Data\OrgPort.Data.csproj", "{7C113D1D-EA34-4F6C-B616-9ADB9499A363}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.DB", "OrgPort.DB\OrgPort.DB.csproj", "{1C32B6F5-0623-43D9-9498-112935007F05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BusinessLogic", "BusinessLogic", "{5CA0215B-5779-4F58-A9AA-B3D814E7961E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.Contracts", "OrgPort.Contracts\OrgPort.Contracts.csproj", "{CD76E31B-38AA-4A70-976E-F54C02C9A78A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.Domain", "OrgPort.Domain\OrgPort.Domain.csproj", "{B00CA0FC-D065-41AF-A700-8CC5155FCE2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTests", "UnitTests", "{AB0522BC-FF09-4B0A-9A4F-CE52D55271A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.DB.UnitTests", "OrgPort.DB.UnitTests\OrgPort.DB.UnitTests.csproj", "{077210A6-1E3F-43D0-B8BA-25176C8A3350}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrgPort.ServicesModel.Test", "OrgPort.ServicesModel.Test\OrgPort.ServicesModel.Test.csproj", "{A31B367C-01B1-4CFE-8D57-9618CFA5615C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAD92273-15AF-45DD-B1B0-DE046217C328}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAD92273-15AF-45DD-B1B0-DE046217C328}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAD92273-15AF-45DD-B1B0-DE046217C328}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAD92273-15AF-45DD-B1B0-DE046217C328}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8887217A-6C0D-4E69-8345-EF20F57BF58A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8887217A-6C0D-4E69-8345-EF20F57BF58A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8887217A-6C0D-4E69-8345-EF20F57BF58A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8887217A-6C0D-4E69-8345-EF20F57BF58A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E852DF-66CE-4737-8A40-C29165DAF9E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E852DF-66CE-4737-8A40-C29165DAF9E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E852DF-66CE-4737-8A40-C29165DAF9E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E852DF-66CE-4737-8A40-C29165DAF9E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C113D1D-EA34-4F6C-B616-9ADB9499A363}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C113D1D-EA34-4F6C-B616-9ADB9499A363}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C113D1D-EA34-4F6C-B616-9ADB9499A363}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C113D1D-EA34-4F6C-B616-9ADB9499A363}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C32B6F5-0623-43D9-9498-112935007F05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C32B6F5-0623-43D9-9498-112935007F05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C32B6F5-0623-43D9-9498-112935007F05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C32B6F5-0623-43D9-9498-112935007F05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD76E31B-38AA-4A70-976E-F54C02C9A78A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD76E31B-38AA-4A70-976E-F54C02C9A78A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD76E31B-38AA-4A70-976E-F54C02C9A78A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD76E31B-38AA-4A70-976E-F54C02C9A78A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B00CA0FC-D065-41AF-A700-8CC5155FCE2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B00CA0FC-D065-41AF-A700-8CC5155FCE2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B00CA0FC-D065-41AF-A700-8CC5155FCE2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B00CA0FC-D065-41AF-A700-8CC5155FCE2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{077210A6-1E3F-43D0-B8BA-25176C8A3350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{077210A6-1E3F-43D0-B8BA-25176C8A3350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{077210A6-1E3F-43D0-B8BA-25176C8A3350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{077210A6-1E3F-43D0-B8BA-25176C8A3350}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A31B367C-01B1-4CFE-8D57-9618CFA5615C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A31B367C-01B1-4CFE-8D57-9618CFA5615C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A31B367C-01B1-4CFE-8D57-9618CFA5615C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A31B367C-01B1-4CFE-8D57-9618CFA5615C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0E852DF-66CE-4737-8A40-C29165DAF9E0} = {00996F54-A0A8-470D-B2D3-361BAA4A8128}
+		{7C113D1D-EA34-4F6C-B616-9ADB9499A363} = {00996F54-A0A8-470D-B2D3-361BAA4A8128}
+		{1C32B6F5-0623-43D9-9498-112935007F05} = {00996F54-A0A8-470D-B2D3-361BAA4A8128}
+		{CD76E31B-38AA-4A70-976E-F54C02C9A78A} = {5CA0215B-5779-4F58-A9AA-B3D814E7961E}
+		{B00CA0FC-D065-41AF-A700-8CC5155FCE2A} = {5CA0215B-5779-4F58-A9AA-B3D814E7961E}
+		{077210A6-1E3F-43D0-B8BA-25176C8A3350} = {AB0522BC-FF09-4B0A-9A4F-CE52D55271A5}
+		{A31B367C-01B1-4CFE-8D57-9618CFA5615C} = {AB0522BC-FF09-4B0A-9A4F-CE52D55271A5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\Unity.2.1.505.2\lib\NET35;packages\Unity.Interception.2.1.505.2\lib\NET35
+	EndGlobalSection
+EndGlobal
