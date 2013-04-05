@@ -48,7 +48,22 @@ namespace OrgPort.ServicesModel.Test
         }
 
         [Fact]
-        public void NewsItemByTag_ReturnNews()
+        public void NewsItemsAll_ReturnNews()
+        {
+            var news = new List<NewsItem> { new NewsItem(), new NewsItem() };
+
+            _newsItemRepository
+                .Setup(r => r.GetNewsItemList(_defaultCount, _defaultStartIndex))
+                .Returns(news);
+
+            var handler = new GetNewsItemList(_newsItemRepository.Object);
+            var result = handler.Execute(_defaultCount, _defaultStartIndex);
+
+            Assert.Equal(result.Count(), news.Count());
+        }
+
+        [Fact]
+        public void NewsItemsByTag_ReturnNews()
         {
             var news = new List<NewsItem>  { new NewsItem { Tags = _tags }, new NewsItem { Tags = _tags }};
 
@@ -63,7 +78,7 @@ namespace OrgPort.ServicesModel.Test
         }
 
         [Fact]
-        public void NewsItemByUser_ReturnNews()
+        public void NewsItemsByUser_ReturnNews()
         {
             var news = new List<NewsItem> { new NewsItem { Users = _users }, new NewsItem { Users = _users } };
 

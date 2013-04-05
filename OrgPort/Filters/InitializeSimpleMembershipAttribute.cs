@@ -5,6 +5,8 @@ using System.Threading;
 using System.Web.Mvc;
 using WebMatrix.WebData;
 using OrgPort.Models;
+using OrgPort.DB.Initializers;
+using OrgPort.DB;
 
 namespace OrgPort.Filters
 {
@@ -29,16 +31,17 @@ namespace OrgPort.Filters
 
                 try
                 {
-                    using (var context = new UsersContext())
-                    {
-                        if (!context.Database.Exists())
-                        {
-                            // Create the SimpleMembership database without Entity Framework migration schema
-                            ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                        }
-                    }
+                    //using (var context = new UsersContext())
+                    //{
+                    //    if (!context.Database.Exists())
+                    //    {
+                    //        // Create the SimpleMembership database without Entity Framework migration schema
+                    //        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
+                    //    }
+                    //}
+                    //WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
 
-                    WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
+                    WebSecurity.InitializeDatabaseConnection("OrgPort.DB.OrgPortDBContext", "User", "Id", "UserName", false);
                 }
                 catch (Exception ex)
                 {

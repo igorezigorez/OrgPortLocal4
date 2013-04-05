@@ -14,6 +14,16 @@ namespace OrgPort.DB.Initializers
     {
         public abstract void InitializeDatabase(T context);
 
+        private static string replacedConnectionString = string.Empty;
+
+        public static string ReplacedConnectionString
+        {
+            get
+            {
+                return replacedConnectionString;
+            }
+        }
+
         protected virtual void Seed(T context)
         {
             ISeedDatabase seeder = context as ISeedDatabase;
@@ -32,7 +42,8 @@ namespace OrgPort.DB.Initializers
                 if (!String.IsNullOrWhiteSpace(builder.DataSource))
                 {
                     builder.DataSource = ReplaceDataDirectory(builder.DataSource);
-                    return new DbContext(builder.ConnectionString);
+                    replacedConnectionString = builder.ConnectionString;
+                    return new DbContext(replacedConnectionString);
                 }
             }
             return context;
