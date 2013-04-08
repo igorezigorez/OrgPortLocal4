@@ -11,6 +11,7 @@ namespace OrgPort.Model
         {
             Roles = new List<UserRole>();
             RelatedUsers = new List<User>();
+            RegistrationDate = DateTime.UtcNow;
         }
         public int Id { get; set; }
         public string AuthorizationId { get; set; }

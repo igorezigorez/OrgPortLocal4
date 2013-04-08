@@ -42,6 +42,7 @@
     <Compile Include="BaseDomainLevelException.cs" />
     <Compile Include="ICreateNewsItemCommand.cs" />
     <Compile Include="ICreateTagCommand.cs" />
+    <Compile Include="ICreateUserCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

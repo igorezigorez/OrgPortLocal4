@@ -1,4 +1,5 @@
-﻿@model OrgPort.Models.RegisterModel
+﻿@model OrgPort.Models.UserRegisterModel
+
 @{
     ViewBag.Title = "Register";
 }
@@ -16,16 +17,16 @@
         <legend>Registration Form</legend>
         <ol>
             <li>
-                @Html.LabelFor(m => m.UserName)
-                @Html.TextBoxFor(m => m.UserName)
+                @Html.LabelFor(m => m.User.UserName)
+                @Html.TextBoxFor(m => m.User.UserName)
             </li>
             <li>
-                @Html.LabelFor(m => m.Password)
-                @Html.PasswordFor(m => m.Password)
+                @Html.LabelFor(m => m.User.Password)
+                @Html.PasswordFor(m => m.User.Password)
             </li>
             <li>
-                @Html.LabelFor(m => m.ConfirmPassword)
-                @Html.PasswordFor(m => m.ConfirmPassword)
+                @Html.LabelFor(m => m.User.ConfirmPassword)
+                @Html.PasswordFor(m => m.User.ConfirmPassword)
             </li>
         </ol>
         <input type="submit" value="Register" />

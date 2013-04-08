@@ -7,6 +7,9 @@ using WebMatrix.WebData;
 using OrgPort.Models;
 using OrgPort.DB.Initializers;
 using OrgPort.DB;
+using OrgPort.AccountExtensions;
+using System.Web.Security;
+using Microsoft.Practices.ServiceLocation;
 
 namespace OrgPort.Filters
 {
@@ -27,21 +30,13 @@ namespace OrgPort.Filters
         {
             public SimpleMembershipInitializer()
             {
-                Database.SetInitializer<UsersContext>(null);
+                //Database.SetInitializer<UsersContext>(null);
 
                 try
                 {
-                    //using (var context = new UsersContext())
-                    //{
-                    //    if (!context.Database.Exists())
-                    //    {
-                    //        // Create the SimpleMembership database without Entity Framework migration schema
-                    //        ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
-                    //    }
-                    //}
-                    //WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
-
-                    WebSecurity.InitializeDatabaseConnection("OrgPort.DB.OrgPortDBContext", "User", "Id", "UserName", false);
+                    OrgPortWebSecurity.Initialize(ServiceLocator.Current);
+                    //WebSecurity.InitializeDatabaseConnection("OrgPort.DB.OrgPortDBContext", "Users", "Id", "UserName", false);
+                    //(Membership.Provider as OrgPortMembershipProvider).ServiceLocator = ServiceLocator.Current;
                 }
                 catch (Exception ex)
                 {

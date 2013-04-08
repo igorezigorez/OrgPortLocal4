@@ -64,7 +64,7 @@ namespace OrgPort.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+            return View(new UserRegisterModel { User = new UserFormModel() });
         }
 
         //
@@ -73,15 +73,16 @@ namespace OrgPort.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Register(RegisterModel model)
+        public ActionResult Register(UserRegisterModel model)
         {
             if (ModelState.IsValid)
             {
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
+                    WebSecurity.CreateUserAndAccount(model.User.UserName, model.User.Password, new { User = model.User });
+                    //WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
+                    WebSecurity.Login(model.User.UserName, model.User.Password);
                     return RedirectToAction("Index", "Home");
                 }
                 catch (MembershipCreateUserException e)

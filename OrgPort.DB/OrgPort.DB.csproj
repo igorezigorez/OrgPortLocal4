@@ -60,6 +60,7 @@
     <Compile Include="Repository\BaseDBRepository.cs" />
     <Compile Include="Repository\NewsItemRepository.cs" />
     <Compile Include="Repository\TagReository.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

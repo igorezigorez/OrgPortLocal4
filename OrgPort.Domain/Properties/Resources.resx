@@ -120,4 +120,43 @@
   <data name="Error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="PasswordConfirmLabelText" xml:space="preserve">
+    <value>Confirm Pasword</value>
+  </data>
+  <data name="PasswordConfirmNotMatch" xml:space="preserve">
+    <value>Passwords dont match</value>
+  </data>
+  <data name="PasswordLabelText" xml:space="preserve">
+    <value>Pasword</value>
+  </data>
+  <data name="PasswordRequired" xml:space="preserve">
+    <value>Password Required</value>
+  </data>
+  <data name="UnableToCreateUserExceptionMessage" xml:space="preserve">
+    <value>Unable to create user</value>
+  </data>
+  <data name="UserAuthorizationIdLabelText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserAuthorizationIdRequired" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserDisplayNameLabelText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserDisplayNameRequired" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserDisplayNameStringLengthValidationError" xml:space="preserve">
+    <value />
+  </data>
+  <data name="UserNameLabelText" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="UserNameRequired" xml:space="preserve">
+    <value>User name is required</value>
+  </data>
+  <data name="UserNameStringLengthValidationError" xml:space="preserve">
+    <value>User name is too long</value>
+  </data>
 </root>
