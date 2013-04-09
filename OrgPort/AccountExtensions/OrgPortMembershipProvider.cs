@@ -23,6 +23,13 @@ namespace OrgPort.AccountExtensions
 {
     public class OrgPortMembershipProvider : ExtendedMembershipProvider
     {
+        public OrgPortMembershipProvider():base() {}
+
+        public OrgPortMembershipProvider(IServiceLocator serviceLocator):base()
+        {
+            ServiceLocator = serviceLocator;
+        }
+
         private const int TokenSizeInBytes = 16;
         public IServiceLocator ServiceLocator { get; set; }
 
@@ -48,15 +55,8 @@ namespace OrgPort.AccountExtensions
                 var userModel = (ICreateUserCommand) values["User"];
                 Using<CreateUser>().Execute(userModel);
             }
+            //todo: return user
             return "";
-            //Using<CreateUser>().Execute(values);
-            //VerifyInitialized();
-
-            //using (var db = ConnectToDatabase())
-            //{
-            //    CreateUserRow(db, userName, values);
-            //    return CreateAccount(userName, password, requireConfirmation);
-            //}
         }
 
         public override bool DeleteAccount(string userName)
