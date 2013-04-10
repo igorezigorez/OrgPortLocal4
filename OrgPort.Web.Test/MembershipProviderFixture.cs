@@ -31,6 +31,8 @@ namespace OrgPort.Web.Test
             );
 
             var membershipProvider = new OrgPortMembershipProvider(serviceLocator.Object);
+
+            //var user = membershipProvider.CreateUserAndAccount()
         }
 
         Mock<T> MockHandlerFor<T>(Func<Mock<T>> create, Action<Mock<T>> setup = null) where T : class

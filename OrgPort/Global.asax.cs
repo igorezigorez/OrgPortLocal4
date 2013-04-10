@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NLog;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -14,8 +15,12 @@ namespace OrgPort
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         protected void Application_Start()
         {
+            logger.Info("Application Start");
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -26,6 +31,29 @@ namespace OrgPort
 
             UnityConfig.RegisterUnity();
             DataSourceConfig.RegisterDataBase();
+        }
+
+        public void Init()
+        {
+            logger.Info("Application Init");
+            base.Init();
+        }
+
+        public void Dispose()
+        {
+            logger.Info("Application Dispose");
+            base.Dispose();
+        }
+
+        protected void Application_Error()
+        {
+            logger.Info("Application Error");
+        }
+
+
+        protected void Application_End()
+        {
+            logger.Info("Application End");
         }
     }
 }
