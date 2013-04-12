@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -46,6 +49,9 @@
     <Compile Include="Handlers\GetNewsItemListByCategory.cs" />
     <Compile Include="Handlers\GetNewsItemListByTag.cs" />
     <Compile Include="Handlers\GetNewsItemListByUser.cs" />
+    <Compile Include="Handlers\LoginUser.cs" />
+    <Compile Include="Mappers\IMapper.cs" />
+    <Compile Include="Mappers\OrgPortMapper.cs" />
     <Compile Include="Models\NewsItemModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,6 +85,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

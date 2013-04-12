@@ -17,9 +17,14 @@ namespace OrgPort.DB.Repository
             throw new NotImplementedException();
         }
 
-        public bool ValidateUser(string name, string password)
+        public User Login(string userName, string password)
         {
-            throw new NotImplementedException();
+            return GetDbSet<User>().FirstOrDefault(u => (String.Compare(userName, u.UserName, true) == 0 && password == u.Password));
+        }
+
+        public User GetUserByName(string userName)
+        {
+            return GetDbSet<User>().FirstOrDefault(u => String.Compare(userName, u.UserName, true) == 0);
         }
 
         public User CreateUser(Model.User userInfo)

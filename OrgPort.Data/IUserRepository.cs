@@ -10,7 +10,9 @@ namespace OrgPort.Data
     public interface IUserRepository
     {
         User GetUser(int id);
-        bool ValidateUser(string name, string password);
+        User Login(string userName, string password);
+        User GetUserByName(string userName);
         User CreateUser(User userInfo);
+        
     }
 }

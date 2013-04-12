@@ -1,5 +1,6 @@
 ﻿using OrgPort.Contracts;
 using OrgPort.Data;
+using OrgPort.Domain.Mappers;
 using OrgPort.Domain.Properties;
 using System;
 using System.Collections.Generic;
@@ -13,9 +14,12 @@ namespace OrgPort.Domain.Handlers
     {
         private readonly IUserRepository _userRepository;
 
-        public CreateUser(IUserRepository userRepository)
+        private readonly IMapper _modelMapper;
+
+        public CreateUser(IUserRepository userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            _modelMapper = mapper;
         }
 
         public virtual void Execute(ICreateUserCommand userForm)

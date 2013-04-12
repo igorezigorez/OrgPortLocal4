@@ -184,6 +184,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="AuthoriztionExtentions\IAuthentication.cs" />
+    <Compile Include="AuthoriztionExtentions\Authentication.cs" />
+    <Compile Include="AuthoriztionExtentions\IUserProvider.cs" />
+    <Compile Include="AuthoriztionExtentions\UserIdentity.cs" />
+    <Compile Include="AuthoriztionExtentions\UserProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AuthorizedController.cs" />
     <Compile Include="Controllers\HomeController.cs" />

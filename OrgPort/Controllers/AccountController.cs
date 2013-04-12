@@ -10,13 +10,17 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using OrgPort.Filters;
 using OrgPort.Models;
+using Microsoft.Practices.ServiceLocation;
 
 namespace OrgPort.Controllers
 {
     [Authorize]
     [InitializeSimpleMembership]
-    public class AccountController : Controller
+    public class AccountController : AuthorizedController
     {
+        public AccountController(IServiceLocator serviceLocator):base (serviceLocator)
+        {
+        }
         //
         // GET: /Account/Login
 
@@ -35,14 +39,26 @@ namespace OrgPort.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            if (ModelState.IsValid)
             {
-                return RedirectToLocal(returnUrl);
+                var user = Authentication.Login(model.UserName, model.Password, true);
+                if (user != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                //ModelState["Password"].Errors.Add("Пароли не совпадают");
+                ModelState.AddModelError("", "The user name or password provided is incorrect.");
             }
-
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "The user name or password provided is incorrect.");
             return View(model);
+
+            //if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            //{
+            //    return RedirectToLocal(returnUrl);
+            //}
+
+            //// If we got this far, something failed, redisplay form
+            //ModelState.AddModelError("", "The user name or password provided is incorrect.");
+            //return View(model);
         }
 
         //
@@ -52,8 +68,10 @@ namespace OrgPort.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            WebSecurity.Logout();
-            Session.Remove("googletoken");
+            Authentication.LogOut();
+            
+            //WebSecurity.Logout();
+            //Session.Remove("googletoken");
 
             return RedirectToAction("Index", "Home");
         }

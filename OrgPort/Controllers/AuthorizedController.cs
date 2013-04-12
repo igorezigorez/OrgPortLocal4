@@ -1,4 +1,6 @@
 ﻿using Microsoft.Practices.ServiceLocation;
+using OrgPort.AuthoriztionExtentions;
+using OrgPort.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +20,17 @@ namespace OrgPort.Controllers
             //this.UserServices = userServices;
             this.serviceLocator = serviceLocator;
         }
+
+        public IAuthentication Authentication { get { return Using<IAuthentication>(); } }
+
+        public UserModel CurrentUser
+        {
+            get
+            {
+                return ((UserIndentity)Authentication.CurrentUser.Identity).User;
+            }
+        }
+
 
         protected T Using<T>() where T : class
         {

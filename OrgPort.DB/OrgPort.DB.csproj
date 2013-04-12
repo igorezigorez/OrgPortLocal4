@@ -64,6 +64,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\OrgPort.Contracts\OrgPort.Contracts.csproj">
+      <Project>{cd76e31b-38aa-4a70-976e-f54c02c9a78a}</Project>
+      <Name>OrgPort.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\OrgPort.Data\OrgPort.Data.csproj">
       <Project>{7c113d1d-ea34-4f6c-b616-9adb9499a363}</Project>
       <Name>OrgPort.Data</Name>

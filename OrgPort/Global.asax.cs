@@ -1,4 +1,5 @@
 ﻿using NLog;
+using OrgPort.AuthoriztionExtentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,14 @@ namespace OrgPort
         protected void Application_End()
         {
             logger.Info("Application End");
+        }
+
+        protected void Application_AuthenticateRequest()
+        {
+            var context = HttpContext.Current;
+            var authentication = DependencyResolver.Current.GetService<IAuthentication>();
+            authentication.HttpContext = context;
+            context.User = authentication.CurrentUser;
         }
     }
 }
