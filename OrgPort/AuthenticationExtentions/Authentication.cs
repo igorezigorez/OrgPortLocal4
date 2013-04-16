@@ -20,6 +20,8 @@ namespace OrgPort.AuthoriztionExtentions
 
         public IServiceLocator ServiceLocator { get; set; }
 
+        public IAuthenticationCookieProvider AuthCookieProvider { get; set; }
+
         //public IRepository Repository { get; set; }
 
         public UserModel Login(string userName, string Password, bool isPersistent)
@@ -63,12 +65,12 @@ namespace OrgPort.AuthoriztionExtentions
                 Value = encTicket,
                 Expires = DateTime.Now.Add(FormsAuthentication.Timeout)
             };
-            HttpContext.Response.Cookies.Set(AuthCookie);
+            AuthCookieProvider.SetCookie(AuthCookie);
         }
 
         public void LogOut()
         {
-            var httpCookie = HttpContext.Response.Cookies[cookieName];
+            var httpCookie = AuthCookieProvider.GetCookie(cookieName);
             if (httpCookie != null)
             {
                 httpCookie.Value = string.Empty;
@@ -85,7 +87,7 @@ namespace OrgPort.AuthoriztionExtentions
                 {
                     try
                     {
-                        HttpCookie authCookie = HttpContext.Request.Cookies.Get(cookieName);
+                        HttpCookie authCookie = AuthCookieProvider.GetCookie(cookieName);
                         if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
                         {
                             var ticket = FormsAuthentication.Decrypt(authCookie.Value);

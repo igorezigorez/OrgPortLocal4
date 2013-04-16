@@ -11,6 +11,8 @@ namespace OrgPort.AuthoriztionExtentions
 {
     public interface IAuthentication
     {
+        IAuthenticationCookieProvider AuthCookieProvider { get; set; }
+
         HttpContext HttpContext { get; set; }
 
         UserModel Login(string login, string password, bool isPersistent);

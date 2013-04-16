@@ -61,6 +61,7 @@ namespace OrgPort
         {
             var context = HttpContext.Current;
             var authentication = DependencyResolver.Current.GetService<IAuthentication>();
+            authentication.AuthCookieProvider = DependencyResolver.Current.GetService<IAuthenticationCookieProvider>();
             authentication.HttpContext = context;
             context.User = authentication.CurrentUser;
         }
