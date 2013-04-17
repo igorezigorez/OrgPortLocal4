@@ -5,10 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace OrgPort.AuthoriztionExtentions
+namespace OrgPort.AuthenticationExtentions
 {
     public interface IAuthenticationCookieProvider
     {
+        HttpContext HttpContext { get; set; }
+
         HttpCookie GetCookie(string cookieName);
 
         void SetCookie(HttpCookie cookie);

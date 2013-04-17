@@ -174,9 +174,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountExtensions\OrgPortMembershipProvider.cs" />
-    <Compile Include="AccountExtensions\OrgPortRoleProvider.cs" />
-    <Compile Include="AccountExtensions\OrgPortWebSecurity.cs" />
     <Compile Include="App_Start\AuthConfig.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DataSourceConfig.cs" />

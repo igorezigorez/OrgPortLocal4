@@ -1,5 +1,5 @@
 ﻿using Microsoft.Practices.ServiceLocation;
-using OrgPort.AuthoriztionExtentions;
+using OrgPort.AuthenticationExtentions;
 using OrgPort.Domain.Models;
 using System;
 using System.Collections.Generic;

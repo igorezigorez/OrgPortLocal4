@@ -1,5 +1,6 @@
-﻿using NLog;
-using OrgPort.AuthoriztionExtentions;
+﻿using Microsoft.Practices.ServiceLocation;
+using NLog;
+using OrgPort.AuthenticationExtentions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,10 +60,16 @@ namespace OrgPort
 
         protected void Application_AuthenticateRequest()
         {
+            logger.Info("AuthenticateRequest");
+
             var context = HttpContext.Current;
+
             var authentication = DependencyResolver.Current.GetService<IAuthentication>();
-            authentication.AuthCookieProvider = DependencyResolver.Current.GetService<IAuthenticationCookieProvider>();
+            authentication.AuthenticationCookieProvider = DependencyResolver.Current.GetService<IAuthenticationCookieProvider>();
+            authentication.AuthenticationCookieProvider.HttpContext = context;
             authentication.HttpContext = context;
+            authentication.ServiceLocator = ServiceLocator.Current;
+
             context.User = authentication.CurrentUser;
         }
     }

@@ -8,10 +8,15 @@ using System.Security.Principal;
 using System.Web;
 using System.Web.Security;
 
-namespace OrgPort.AuthoriztionExtentions
+namespace OrgPort.AuthenticationExtentions
 {
     public class Authentication: IAuthentication
     {
+        public Authentication()//IAuthenticationCookieProvider authenticationCookieProvider)
+        {
+            //AuthenticationCookieProvider = authenticationCookieProvider;
+        }
+
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         private const string cookieName = "__AUTH_COOKIE";
@@ -20,9 +25,7 @@ namespace OrgPort.AuthoriztionExtentions
 
         public IServiceLocator ServiceLocator { get; set; }
 
-        public IAuthenticationCookieProvider AuthCookieProvider { get; set; }
-
-        //public IRepository Repository { get; set; }
+        public IAuthenticationCookieProvider AuthenticationCookieProvider { get; set; }
 
         public UserModel Login(string userName, string Password, bool isPersistent)
         {
@@ -36,7 +39,6 @@ namespace OrgPort.AuthoriztionExtentions
 
         public UserModel Login(string userName)
         {
-            //UserModel retUser =  Repository.Users.FirstOrDefault(p => string.Compare(p.Email, userName, true) == 0);
             UserModel retUser = Using<LoginUser>().Execute(userName);
             if (retUser != null)
             {
@@ -65,16 +67,18 @@ namespace OrgPort.AuthoriztionExtentions
                 Value = encTicket,
                 Expires = DateTime.Now.Add(FormsAuthentication.Timeout)
             };
-            AuthCookieProvider.SetCookie(AuthCookie);
+            AuthenticationCookieProvider.SetCookie(AuthCookie);
         }
 
-        public void LogOut()
+        public void LogOff()
         {
-            var httpCookie = AuthCookieProvider.GetCookie(cookieName);
+            var httpCookie = AuthenticationCookieProvider.GetCookie(cookieName);
             if (httpCookie != null)
             {
                 httpCookie.Value = string.Empty;
+                httpCookie.Expires = DateTime.UtcNow.AddMinutes(-2);
             }
+            AuthenticationCookieProvider.SetCookie(httpCookie);
         }
 
         private IPrincipal _currentUser;
@@ -87,7 +91,7 @@ namespace OrgPort.AuthoriztionExtentions
                 {
                     try
                     {
-                        HttpCookie authCookie = AuthCookieProvider.GetCookie(cookieName);
+                        HttpCookie authCookie = AuthenticationCookieProvider.GetCookie(cookieName);
                         if (authCookie != null && !string.IsNullOrEmpty(authCookie.Value))
                         {
                             var ticket = FormsAuthentication.Decrypt(authCookie.Value);

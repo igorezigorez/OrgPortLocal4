@@ -15,7 +15,7 @@ using Microsoft.Practices.ServiceLocation;
 namespace OrgPort.Controllers
 {
     [Authorize]
-    [InitializeSimpleMembership]
+    //[InitializeSimpleMembership]
     public class AccountController : AuthorizedController
     {
         public AccountController(IServiceLocator serviceLocator):base (serviceLocator)
@@ -68,11 +68,10 @@ namespace OrgPort.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
         {
-            Authentication.LogOut();
+            Authentication.LogOff();
             
             //WebSecurity.Logout();
             //Session.Remove("googletoken");
-
             return RedirectToAction("Index", "Home");
         }
 

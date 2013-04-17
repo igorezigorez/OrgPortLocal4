@@ -5,7 +5,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Web;
 
-namespace OrgPort.AuthoriztionExtentions
+namespace OrgPort.AuthenticationExtentions
 {
     public class UserProvider : IPrincipal
     {

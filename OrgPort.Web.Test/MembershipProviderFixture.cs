@@ -1,6 +1,6 @@
 ﻿using Microsoft.Practices.ServiceLocation;
 using Moq;
-using OrgPort.AccountExtensions;
+//using OrgPort.AccountExtensions;
 using OrgPort.Domain.Handlers;
 using OrgPort.Models;
 using System;
@@ -30,7 +30,7 @@ namespace OrgPort.Web.Test
                     .Setup(h => h.Execute((new UserFormModel { UserName = "UserName", Password = "Password", ConfirmPassword = "Password" })))
             );
 
-            var membershipProvider = new OrgPortMembershipProvider(serviceLocator.Object);
+            //var membershipProvider = new OrgPortMembershipProvider(serviceLocator.Object);
 
             //var user = membershipProvider.CreateUserAndAccount()
         }

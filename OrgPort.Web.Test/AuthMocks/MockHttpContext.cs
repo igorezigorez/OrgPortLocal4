@@ -1,5 +1,5 @@
 ﻿using Moq;
-using OrgPort.AuthoriztionExtentions;
+using OrgPort.AuthenticationExtentions;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;

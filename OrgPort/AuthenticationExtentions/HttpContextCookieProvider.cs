@@ -3,16 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace OrgPort.AuthoriztionExtentions
+namespace OrgPort.AuthenticationExtentions
 {
     public class HttpContextCookieProvider:IAuthenticationCookieProvider
     {
-        public HttpContextCookieProvider(HttpContext HttpContext)
-        {
-            this.HttpContext = HttpContext;
-        }
-
-        protected HttpContext HttpContext { get; set; }
+        public HttpContext HttpContext { get; set; }
 
         public HttpCookie GetCookie(string cookieName)
         {

@@ -1,4 +1,5 @@
-﻿using OrgPort.Domain.Models;
+﻿using Microsoft.Practices.ServiceLocation;
+using OrgPort.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace OrgPort.AuthoriztionExtentions
+namespace OrgPort.AuthenticationExtentions
 {
     public interface IAuthentication
     {
-        IAuthenticationCookieProvider AuthCookieProvider { get; set; }
+        IAuthenticationCookieProvider AuthenticationCookieProvider { get; set; }
+
+        IServiceLocator ServiceLocator { get; set; }
 
         HttpContext HttpContext { get; set; }
 
@@ -19,7 +22,7 @@ namespace OrgPort.AuthoriztionExtentions
 
         UserModel Login(string login);
 
-        void LogOut();
+        void LogOff();
 
         IPrincipal CurrentUser { get; }
     }
